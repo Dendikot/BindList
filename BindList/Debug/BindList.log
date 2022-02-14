@@ -1,9 +1,12 @@
 ﻿  BindList.cpp
-C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(67,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(65): message : while compiling class template member function 'BindList<int,2>::~BindList(void)'
-C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(181): message : see reference to function template instantiation 'BindList<int,2>::~BindList(void)' being compiled
-C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(181): message : see reference to class template instantiation 'BindList<int,2>' being compiled
-C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(95,24): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(93): message : while compiling class template member function 'BindList<int,0>::Cell *BindList<int,0>::getCell(int) const'
-C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(177): message : see reference to function template instantiation 'BindList<int,0>::Cell *BindList<int,0>::getCell(int) const' being compiled
-C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(167): message : see reference to class template instantiation 'BindList<int,0>' being compiled
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(112,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(110): message : while compiling class template member function 'BindList<int>::Cell *BindList<int>::getCell(int) const'
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(204): message : see reference to function template instantiation 'BindList<int>::Cell *BindList<int>::getCell(int) const' being compiled
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(194): message : see reference to class template instantiation 'BindList<int>' being compiled
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(84,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(82): message : while compiling class template member function 'BindList<int>::~BindList(void)'
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(194): message : see reference to function template instantiation 'BindList<int>::~BindList(void)' being compiled
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(31,24): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(29): message : while compiling class template member function 'BindList<int>::BindList(int,int)'
+C:\Users\Dan\Documents\GitHub\BindList\BindList\BindList.cpp(208): message : see reference to function template instantiation 'BindList<int>::BindList(int,int)' being compiled
+  BindList.vcxproj -> C:\Users\Dan\Documents\GitHub\BindList\BindList\Debug\BindList.exe

@@ -1,21 +1,46 @@
 ﻿#include <iostream>
-template<class T, size_t S = 0>
+template<class T>
 class BindList
 {
 public:
 	using ValueType = T;
 	BindList() {
+		nullCell->Next = endCell;
+		nullCell->Previous = endCell;
+		size = 0;
+	}
+
+	// fix this
+	BindList(int range) {
 		Cell* temp = nullCell;
-		for (size_t i = 0; i < S; i++)
+		for (size_t i = 0; i < range; i++)
 		{
 			Cell* newCell = new Cell(temp, nullCell);
 			temp->Next = newCell;
 			temp = newCell;
 		}
-		size = S;
+		size = range;
 		endCell = temp;
+		nullCell->Next = getCell(0);
+		nullCell->Previous = endCell;
 	}
 
+	// fix this
+	BindList(int range, ValueType value) {
+		Cell* temp = nullCell;
+		for (size_t i = 0; i < range; i++)
+		{
+			Cell* newCell = new Cell(value,temp, nullCell);
+			temp->Next = newCell;
+			temp = newCell;
+		}
+		size = range;
+		endCell = temp;
+		nullCell->Next = getCell(0);
+		nullCell->Previous = endCell;
+	}
+
+	// fix this
 	BindList(const BindList& other) {
 		if (other.size < 0) { return; }
 		for (int i = 0; i < other.size; i++)
@@ -24,18 +49,10 @@ public:
 			//ValueType m = other[i];
 			//pushCell(other[i]);
 		}
-	}
+		endCell = getCell(other.size-1);
+		nullCell->Next = getCell(0);
+		nullCell->Previous = endCell;
 
-	BindList(ValueType rangeVal) {
-		Cell* temp = nullCell;
-		for (size_t i = 0; i < S; i++)
-		{
-			Cell* newCell = new Cell(rangeVal,temp, nullCell);
-			temp->Next = newCell;
-			temp = newCell;
-		}
-		size = S;
-		endCell = temp;
 	}
 
 	struct Cell
@@ -145,6 +162,15 @@ public:
 		}
 		return getCell(index)->value;
 	}
+	
+	// swap bind lists with each other, simply reassign nullpointers and endpointers
+	// change size
+	// replace size with parameter
+
+	void swap(const BindList& swapList)
+	{
+		BindList t = swapList;
+	}
 
 	/*bool testMethod(ValueType a, ValueType b, function<ValueType(ValueType, ValueType)> func) {
 		return func(a, b);
@@ -164,6 +190,7 @@ bool CompareMethod(int a, int b) {
 
 int main()
 {
+
 	BindList<int> testList;
 	testList.pushCell(65);
 	testList.pushCell(888);
@@ -178,8 +205,12 @@ int main()
 
 	//std::cout << testList2[1];;
 
-	BindList<int, 2> testList3(2);
+	BindList<int> testList3(2,2);
 	testList3.pushCellFront(66);
+
+	BindList<int> testList4(4,65);
+
+	testList3.swap(testList4);
 
 	//testList3.testMethod(2,4, &CompareMethod);
 
