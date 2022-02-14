@@ -167,9 +167,22 @@ public:
 	// change size
 	// replace size with parameter
 
-	void swap(const BindList& swapList)
+	void swap(BindList& swapList)
 	{
-		BindList t = swapList;
+		Cell tempNullCell = *(swapList.nullCell);
+		*(swapList.nullCell) = *nullCell;
+		*nullCell = tempNullCell;
+
+		endCell = nullCell->Previous;
+		swapList.nullCell = swapList.nullCell->Previous;
+
+		int tempSize = size;
+		size = swapList.size;
+		swapList.size = tempSize;
+	}
+
+	int& getSize() {
+		return size;
 	}
 
 	/*bool testMethod(ValueType a, ValueType b, function<ValueType(ValueType, ValueType)> func) {
@@ -190,7 +203,6 @@ bool CompareMethod(int a, int b) {
 
 int main()
 {
-
 	BindList<int> testList;
 	testList.pushCell(65);
 	testList.pushCell(888);
@@ -208,9 +220,18 @@ int main()
 	BindList<int> testList3(2,2);
 	testList3.pushCellFront(66);
 
-	BindList<int> testList4(4,65);
+	BindList<int> testList4(7,65);
+	for (size_t i = 0; i < testList3.getSize(); i++)
+	{
+		std::cout << testList3[i] << "\n";
+	}
 
 	testList3.swap(testList4);
+
+	for (size_t i = 0; i < testList3.getSize(); i++)
+	{
+		std::cout << testList3[i] << "\n";
+	}
 
 	//testList3.testMethod(2,4, &CompareMethod);
 
